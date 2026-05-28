@@ -413,35 +413,74 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--border); pa
   <h2 class="section-title">Demandez un devis gratuit</h2>
   <p style="color:var(--text2);max-width:400px;margin:0 auto;">Réponse sous 24h. Devis gratuit et sans engagement.</p>
   <div class="contact-card">
-    <div class="contact-grid">
+    <!-- Infos contact -->
+    <div class="contact-grid" style="margin-bottom:24px;">
       <div class="contact-item">
         <div class="contact-label">Technicien</div>
         <div class="contact-value">Jonathan Coiffard</div>
       </div>
       <div class="contact-item">
-        <div class="contact-label">Société</div>
-        <div class="contact-value">JC Software</div>
-      </div>
-      <div class="contact-item">
         <div class="contact-label">Téléphone</div>
-        <div class="contact-value"><a href="tel:+33771025542">+33 7 71 02 55 42</a></div>
+        <div class="contact-value" style="color:var(--accent);">07 71 02 55 42</div>
       </div>
       <div class="contact-item">
         <div class="contact-label">Email</div>
-        <div class="contact-value"><a href="mailto:linuxien33210@gmail.com">linuxien33210@gmail.com</a></div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-label">Localisation</div>
-        <div class="contact-value">Langon, Gironde (33)</div>
+        <div class="contact-value">linuxien33210@gmail.com</div>
       </div>
       <div class="contact-item">
         <div class="contact-label">Disponibilité</div>
         <div class="contact-value">Lun–Sam, 8h–19h</div>
       </div>
     </div>
-    <a href="mailto:linuxien33210@gmail.com?subject=Demande d'intervention DiskCloner Pro&body=Bonjour Jonathan,%0D%0A%0D%0AJe souhaite une intervention pour :%0D%0A- Type : clonage / migration / sauvegarde%0D%0A- Taille du disque :%0D%0A- Adresse :%0D%0A- Disponibilités :%0D%0A%0D%0ACordialement" class="btn-primary" style="width:100%;justify-content:center;font-size:15px;padding:14px;">
-      📧 Envoyer une demande d'intervention
-    </a>
+
+    <!-- Formulaire -->
+    <div id="form-container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+        <div>
+          <label style="font-size:11px;color:var(--text3);letter-spacing:1px;text-transform:uppercase;">Votre nom *</label>
+          <input type="text" id="f-nom" placeholder="Jean Dupont" style="width:100%;margin-top:4px;background:#1a1e35;color:#f0f0ff;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:10px 12px;font-size:14px;font-family:DM Sans,sans-serif;">
+        </div>
+        <div>
+          <label style="font-size:11px;color:var(--text3);letter-spacing:1px;text-transform:uppercase;">Votre téléphone *</label>
+          <input type="tel" id="f-tel" placeholder="06 12 34 56 78" style="width:100%;margin-top:4px;background:#1a1e35;color:#f0f0ff;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:10px 12px;font-size:14px;font-family:DM Sans,sans-serif;">
+        </div>
+      </div>
+      <div style="margin-bottom:12px;">
+        <label style="font-size:11px;color:var(--text3);letter-spacing:1px;text-transform:uppercase;">Votre email</label>
+        <input type="email" id="f-email" placeholder="votre@email.com" style="width:100%;margin-top:4px;background:#1a1e35;color:#f0f0ff;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:10px 12px;font-size:14px;font-family:DM Sans,sans-serif;">
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+        <div>
+          <label style="font-size:11px;color:var(--text3);letter-spacing:1px;text-transform:uppercase;">Type d'intervention</label>
+          <select id="f-type" style="width:100%;margin-top:4px;background:#1a1e35;color:#f0f0ff;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:10px 12px;font-size:14px;font-family:DM Sans,sans-serif;">
+            <option>Migration PC</option>
+            <option>Sauvegarde disque</option>
+            <option>Clonage disque</option>
+            <option>Restauration image</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-size:11px;color:var(--text3);letter-spacing:1px;text-transform:uppercase;">Taille du disque</label>
+          <select id="f-taille" style="width:100%;margin-top:4px;background:#1a1e35;color:#f0f0ff;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:10px 12px;font-size:14px;font-family:DM Sans,sans-serif;">
+            <option>Moins de 500 Go — 39€</option>
+            <option>500 Go à 1 To — 59€</option>
+            <option>1 To à 2 To — 79€</option>
+            <option>Plus de 2 To — 99€</option>
+            <option>Je ne sais pas</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin-bottom:16px;">
+        <label style="font-size:11px;color:var(--text3);letter-spacing:1px;text-transform:uppercase;">Votre adresse et disponibilités</label>
+        <textarea id="f-message" rows="3" placeholder="Ex: 12 rue des Fleurs, Bordeaux. Disponible mercredi après-midi ou vendredi matin." style="width:100%;margin-top:4px;background:#1a1e35;color:#f0f0ff;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:10px 12px;font-size:14px;font-family:DM Sans,sans-serif;resize:none;"></textarea>
+      </div>
+      <button onclick="envoyerDevis()" style="width:100%;padding:14px;border-radius:12px;border:none;background:var(--accent);color:#080a12;font-size:15px;font-weight:700;cursor:pointer;font-family:DM Sans,sans-serif;">
+        📧 Envoyer ma demande d'intervention
+      </button>
+      <div id="form-msg" style="margin-top:12px;text-align:center;font-size:13px;"></div>
+    </div>
+
     <div style="margin-top:16px;text-align:center;">
       <a href="https://ko-fi.com/jcsoftware" target="_blank" style="font-size:13px;color:var(--text3);text-decoration:none;">☕ Soutenir JC Software sur Ko-fi</a>
     </div>
@@ -463,6 +502,65 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--border); pa
 
 <script>
 function toggleFaq(el) { el.classList.toggle('open'); }
+
+function envoyerDevis() {
+  const nom = document.getElementById('f-nom').value.trim();
+  const tel = document.getElementById('f-tel').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const type = document.getElementById('f-type').value;
+  const taille = document.getElementById('f-taille').value;
+  const message = document.getElementById('f-message').value.trim();
+  const msg = document.getElementById('form-msg');
+
+  if (!nom || !tel) {
+    msg.style.color = '#fb923c';
+    msg.textContent = '⚠ Veuillez renseigner votre nom et téléphone.';
+    return;
+  }
+
+  // Construit le lien mailto avec toutes les infos
+  const subject = encodeURIComponent('Demande intervention DiskCloner Pro — ' + nom);
+  const body = encodeURIComponent(
+    'Bonjour Jonathan,
+
+' +
+    'Je souhaite une intervention DiskCloner Pro.
+
+' +
+    'NOM : ' + nom + '
+' +
+    'TÉLÉPHONE : ' + tel + '
+' +
+    'EMAIL : ' + (email || 'Non renseigné') + '
+' +
+    'TYPE : ' + type + '
+' +
+    'TAILLE DISQUE : ' + taille + '
+' +
+    'ADRESSE / DISPONIBILITÉS : ' + (message || 'Non renseigné') + '
+
+' +
+    'Cordialement,
+' + nom
+  );
+
+  // Ouvre le client mail
+  window.location.href = 'mailto:linuxien33210@gmail.com?subject=' + subject + '&body=' + body;
+
+  // Affiche aussi les infos pour copier-coller si mailto ne fonctionne pas
+  msg.style.color = '#4ade80';
+  msg.innerHTML = '✓ Si votre messagerie ne s'ouvre pas, copiez ces infos et envoyez un email à <a href="mailto:linuxien33210@gmail.com" style="color:var(--accent);">linuxien33210@gmail.com</a>';
+
+  // Affiche un résumé
+  setTimeout(() => {
+    document.getElementById('form-container').innerHTML = '<div style="text-align:center;padding:20px;">' +
+      '<div style="font-size:40px;margin-bottom:12px;">✅</div>' +
+      '<div style="font-family:Syne,sans-serif;font-size:18px;font-weight:700;color:#4ade80;margin-bottom:8px;">Demande envoyée !</div>' +
+      '<div style="color:#9b9bc4;font-size:13px;margin-bottom:16px;">Je vous recontacte sous 24h au ' + tel + '</div>' +
+      '<div style="color:#9b9bc4;font-size:12px;">Ou contactez-moi directement :<br><a href="tel:+33771025542" style="color:var(--accent);">07 71 02 55 42</a></div>' +
+      '</div>';
+  }, 1000);
+}
 </script>
 </body>
 </html>
