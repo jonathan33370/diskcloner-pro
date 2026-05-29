@@ -343,7 +343,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--border); pa
       <div class="licence-feature">Licence nominative par poste</div>
     </div>
     <div style="display:flex;gap:12px;flex-wrap:wrap;">
-      <a href="mailto:linuxien33210@gmail.com?subject=Licence DiskCloner Pro" class="btn-primary">📧 Commander la licence</a>
+      <a href="#contact" class="btn-primary" onclick="document.getElementById('f-type').value='Licence 29€/an'; document.getElementById('f-type').dispatchEvent(new Event('change'));">📧 Commander la licence</a>
       <a href="https://jonathan33370.github.io/diskcloner-site/" target="_blank" class="btn-secondary">Version gratuite →</a>
     </div>
   </div>
@@ -457,6 +457,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--border); pa
             <option>Sauvegarde disque</option>
             <option>Clonage disque</option>
             <option>Restauration image</option>
+            <option>Licence 29€/an</option>
             <option>Autre</option>
           </select>
         </div>
